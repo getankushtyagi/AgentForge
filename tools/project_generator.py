@@ -1,8 +1,14 @@
 import os
+from pathlib import Path
 
 class ProjectGenerator:
     def __init__(self, base_dir="generated_projects"):
-        self.base_dir=base_dir
+        # Use absolute path relative to the project root
+        if not os.path.isabs(base_dir):
+            project_root = Path(__file__).parent.parent
+            self.base_dir = os.path.join(project_root, base_dir)
+        else:
+            self.base_dir = base_dir
         
     def create_project(self, state):
         product_name=state["product_spec"]["product_name"]
