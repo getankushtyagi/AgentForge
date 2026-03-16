@@ -51,7 +51,7 @@ class ProjectGenerator:
         {chr(10).join(['- ' + s for s in architecture['services']])}
 
         ## Database Tables
-        {chr(10).join(['- ' + d for d in architecture['database_tables']])}
+        {chr(10).join(['- ' + d for d in architecture['database_table']])}
 
         ## Tech Stack
         {chr(10).join(['- ' + t for t in architecture['tech_stack']])}
@@ -90,7 +90,7 @@ class ProjectGenerator:
         {chr(10).join(['- ' + e for e in qa_plan['edge_cases']])}
 
         ## API Tests
-        {chr(10).join(['- ' + a for a in qa_plan['api_tests']])}
+        {chr(10).join(['- ' + a for a in qa_plan['api_test']])}
         """
 
         with open(os.path.join(path, "test_plan.md"), "w") as f:
