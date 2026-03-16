@@ -6,17 +6,17 @@ class ProjectGenerator:
         
     def create_project(self, state):
         product_name=state["product_spec"]["product_name"]
-        folder_name=product_name.lower().replace("","_")
+        folder_name=product_name.lower().replace(" ","_")
         project_path=os.path.join(self.base_dir, folder_name)
         
         os.makedirs(project_path,exist_ok=True)
         
-        self.create_prd(project_path,state["product"])
+        self.create_prd(project_path,state["product_spec"])
         self.create_architecture(project_path,state["architecture"])
         self.create_backend_design(project_path,state["backend_design"])
         self.create_test_plan(project_path,state["qa_plan"])
         
-        print("\n Project generated at: {project_path}")
+        print(f"\n Project generated at: {project_path}")
     
     def create_prd(self, path, product_spec):
 
