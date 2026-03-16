@@ -1,12 +1,29 @@
 from langgraph.graph import StateGraph , END
 from schemas.agent_state import AgentState
+from agents.product_manager import ProductManagerAgent
+from agents.architect import ArchitectAgent
+
+product_agent=ProductManagerAgent()
+architect_agent=ArchitectAgent()
 
 def product_manager_node(state:AgentState):
-    print("product manager agent running")
+    
+    idea=state["idea"]
+    
+    product_spec= product_agent.generate_product_spec(idea)
+    
+    state["product_spec"] = product_spec.model_dump()
+    
+    print("\nproduct specififcation generated\n")
+    
     return state
 
 def architecture_node(state:AgentState):
-    print("Architect agent running")
+    product_spec=state["product_spec"]
+    architecture=architect_agent.generate_architecture(product_spec)
+    state["architecture"]=architecture.model_dump()
+    print("\n Architecture generated\n")
+    
     return state
 
 def backend_engineer_node(state:AgentState):

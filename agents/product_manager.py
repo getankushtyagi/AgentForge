@@ -31,13 +31,20 @@ class ProductManagerAgent:
         Idea:
         {idea}
 
-        Return ONLY valid JSON with these fields:
+        Return ONLY valid JSON matching this EXACT format:
+        {{
+          "product_name": "string - name of the product",
+          "description": "string - detailed description",
+          "target_users": ["string1", "string2", "string3"],
+          "core_features": ["string1", "string2", "string3"],
+          "success_metrics": ["string1", "string2", "string3"]
+        }}
 
-        product_name
-        description
-        target_users
-        core_features
-        success_metrics
+        IMPORTANT: 
+        - target_users, core_features, and success_metrics must be arrays of STRINGS only
+        - Do NOT use objects or nested structures
+        - Each feature should be a simple descriptive string
+        - Return ONLY the JSON, no markdown, no explanations
         """
         
         response=self.llm.invoke(prompt)

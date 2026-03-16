@@ -10,7 +10,7 @@ class AgentState(TypedDict):
     product_spec: Optional[ProductSpecification]
     
     #Architect Output
-    architecture=Optional[dict]
+    architecture: Optional[dict]
     
     #Backend Engineer Output
     backend_design:Optional[dict]
