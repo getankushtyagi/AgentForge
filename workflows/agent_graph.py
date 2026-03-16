@@ -3,10 +3,13 @@ from schemas.agent_state import AgentState
 from agents.product_manager import ProductManagerAgent
 from agents.architect import ArchitectAgent
 from agents.backend_engineer import BackendEngineerAgent
+from agents.qa_engineer import QAEngineerAgent
 
 product_agent=ProductManagerAgent()
 architect_agent=ArchitectAgent()
 backend_agent=BackendEngineerAgent()
+qa_agent=QAEngineerAgent()
+
 
 def product_manager_node(state:AgentState):
     
@@ -36,7 +39,10 @@ def backend_engineer_node(state:AgentState):
     return state
 
 def qa_engineer_node(state:AgentState):
-    print("QA Engineer agent running")
+    backend_design = state['backend_design']
+    qa_plan=qa_agent.generate_test_plan(backend_design)
+    state["qa_plan"]=qa_plan.model_dump()
+    print("\n QA Plan generated")
     return state
 
 
