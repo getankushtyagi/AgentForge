@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-
+from agents.code_generator import CodeGeneratorAgent
 class ProjectGenerator:
     def __init__(self, base_dir="generated_projects"):
         # Use absolute path relative to the project root
@@ -23,6 +23,9 @@ class ProjectGenerator:
         self.create_test_plan(project_path,state["qa_plan"])
         
         print(f"\n Project generated at: {project_path}")
+        
+        code_agent=CodeGeneratorAgent()
+        code_agent.generate_backend_code(state,project_path)
     
     def create_prd(self, path, product_spec):
 
