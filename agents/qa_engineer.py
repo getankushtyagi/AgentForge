@@ -34,13 +34,17 @@ class QAEngineerAgent:
         Backend Design:
         {backend_design}
 
-        Return ONLY valid JSON with this format:
-
+        Return ONLY valid JSON matching this EXACT format:
         {{
           "test_cases": ["string1", "string2"],
           "edge_cases": ["string1", "string2"],
-          "api_tests": ["string1", "string2"]
+          "api_test": ["string1", "string2"]
         }}
+
+        IMPORTANT: 
+        - All fields must be arrays of STRINGS only
+        - Do NOT use objects or nested structures
+        - Return ONLY the JSON, no markdown, no explanations
         """
 
         response = self.llm.invoke(prompt)
