@@ -13,7 +13,7 @@
 - **Complete Documentation Suite**: Generates PRD, architecture docs, backend design, and test plans
 - **LangGraph Orchestration**: Uses state-based workflow for agent coordination
 - **Structured Output**: Validates all outputs using Pydantic schemas
-- **Gemini Integration**: Powered by Google's Gemini 2.5 Flash model
+- **Gemini Integration**: Powered by Google's Gemini 2.5 Flash model (you can also use the latest model)
 - **Automated Project Generation**: Creates organized documentation folders automatically
 
 ## 🏗️ Architecture
@@ -51,7 +51,7 @@ Product Idea → Product Manager → Architect → Backend Engineer → QA Engin
 - **Python 3.11+**: Core programming language
 - **LangChain 0.2.14**: LLM application framework
 - **LangGraph 0.2.16**: Agent workflow orchestration
-- **Google Gemini 2.5 Flash**: Large Language Model
+- **Google Gemini**: Large Language Model
 - **Pydantic 2.8.2**: Data validation and schema management
 - **Python-dotenv**: Environment variable management
 
