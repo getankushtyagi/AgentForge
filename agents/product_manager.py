@@ -46,8 +46,8 @@ class ProductManagerAgent:
             raise ValueError("LLM return empty response")
         cleaned = self.clean_llm_json(response.content)
         
-        data =json.load(cleaned)
+        data =json.loads(cleaned)
         
-        product_spec=ProductManagerAgent(**data)
+        product_spec=ProductSpecification(**data)
         
         return product_spec
